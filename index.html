@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kusi Minimarket | Cajamarca</title>
+  <meta name="description" content="Kusi Minimarket — Snacks, bebidas y abarrotes en Cajamarca. Delivery disponible. 7 tiendas."/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="logo-badge">
+    <span class="kusi">KUSI</span>
+    <span class="mini-tag">MINIMARKET</span>
+  </div>
+  <nav>
+    <a href="#ofertas">Ofertas</a>
+    <a href="#productos">Productos</a>
+    <a href="#tiendas">Tiendas</a>
+  </nav>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="floating-emojis" aria-hidden="true">
+    <span class="float-item" style="left:5%;top:18%;animation-delay:0s">🍟</span>
+    <span class="float-item" style="left:85%;top:10%;animation-delay:1.1s">🍦</span>
+    <span class="float-item" style="left:70%;top:62%;animation-delay:.5s">🍺</span>
+    <span class="float-item" style="left:12%;top:65%;animation-delay:1.7s">🍫</span>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <span class="kusi-big">KUSI</span>
+      <span class="mini-tag-big">MINIMARKET</span>
+    </div>
+    <p class="hero-tagline">Snacks · Bebidas · Abarrotes · Más</p>
+    <div class="hero-pills">
+      <span class="pill pill-green">🛵 Delivery</span>
+      <span class="pill pill-white">📍 7 Tiendas</span>
+      <span class="pill pill-white">📞 932 327 885</span>
+    </div>
+    <a href="#ofertas" class="hero-cta">Ver Ofertas del Día</a>
+  </div>
+</section>
+
+<!-- ══ STATS BAR ══ -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num">7</span>
+    <span class="stat-lbl">Tiendas</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <span class="stat-num">24/7</span>
+    <span class="stat-lbl">Atención</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <span class="stat-num">🛵</span>
+    <span class="stat-lbl">Delivery</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <span class="stat-num">S/.2+</span>
+    <span class="stat-lbl">Desde</span>
+  </div>
+</div>
+
+<!-- ══ DELIVERY BAR ══ -->
+<div class="delivery-bar">
+  <div class="db-left">
+    <span class="db-icon">🛵</span>
+    <div>
+      <strong>Delivery disponible</strong>
+      <p>Lun–Jue 9am–11pm &nbsp;·&nbsp; Vie–Dom 9am–1am</p>
+    </div>
+  </div>
+  <a href="https://wa.me/51932327885?text=Hola%20Kusi%2C%20quiero%20hacer%20un%20pedido" target="_blank" class="db-btn">Pedir ya</a>
+</div>
+
+<!-- ══ CATEGORÍAS ══ -->
+<div class="section">
+  <p class="section-label">Categorías</p>
+  <div class="categories" id="catBar">
+    <button class="cat-card active" data-cat="todos" onclick="filterCat(this,'todos')">
+      <span>🏪</span><span>Todos</span>
+    </button>
+  </div>
+</div>
+
+<!-- ══ OFERTAS ══ -->
+<section id="ofertas">
+  <div class="section-header-band">
+    <div class="shb-left">
+      <span class="fire-badge">🔥</span>
+      <span>Ofertas del Día</span>
+    </div>
+    <span class="band-tag">HOY SOLO</span>
+  </div>
+  <div class="section" style="padding-top:12px">
+    <div class="products-grid" id="offersGrid">
+      <div class="loading-state"><div class="spinner"></div>Cargando…</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCTOS ══ -->
+<section id="productos" class="section">
+  <p class="section-label">Todos los Productos</p>
+  <div class="search-box">
+    <span class="search-icon-abs">🔍</span>
+    <input type="text" id="searchInput" placeholder="Buscar por nombre…" oninput="searchProducts()">
+  </div>
+  <div class="products-grid" id="productsGrid">
+    <div class="loading-state"><div class="spinner"></div>Cargando…</div>
+  </div>
+</section>
+
+<!-- ══ TIENDAS ══ -->
+<section id="tiendas" class="section">
+  <p class="section-label">Nuestras Tiendas en Cajamarca</p>
+
+  <!-- Mini mapa principal -->
+  <div class="stores-map-card">
+    <iframe
+      src="https://maps.google.com/maps?q=Cajamarca+Peru&output=embed"
+      width="100%" height="180" style="border:0;display:block;" loading="lazy"
+      title="Mapa Cajamarca"></iframe>
+    <div class="stores-map-footer">
+      <span>📍 7 sedes en toda la ciudad</span>
+      <a href="https://maps.google.com/maps?q=Kusi+Minimarket+Cajamarca" target="_blank" class="map-link-btn">Ver en Maps</a>
+    </div>
+  </div>
+
+  <!-- Grid de tiendas -->
+  <div class="stores-grid">
+    <a class="store-card" href="https://maps.google.com/maps?q=Jr+Paul+Rivet+148+Cajamarca" target="_blank">
+      <div class="store-num">1</div>
+      <div class="store-body">
+        <strong>Jr. Paul Rivet 148</strong>
+        <small>Sede principal · Centro</small>
+      </div>
+      <span class="store-arrow">›</span>
+    </a>
+    <a class="store-card" href="https://maps.google.com/maps?q=Av+Hoyos+Rubio+405+Cajamarca" target="_blank">
+      <div class="store-num">2</div>
+      <div class="store-body">
+        <strong>Av. Hoyos Rubio 405</strong>
+        <small>Zona norte</small>
+      </div>
+      <span class="store-arrow">›</span>
+    </a>
+    <a class="store-card" href="https://maps.google.com/maps?q=Av+Andres+Zevallos+UPN+Cajamarca" target="_blank">
+      <div class="store-num">3</div>
+      <div class="store-body">
+        <strong>Av. Andrés Zevallos</strong>
+        <small>Frente a UPN</small>
+      </div>
+      <span class="store-arrow">›</span>
+    </a>
+    <a class="store-card" href="https://maps.google.com/maps?q=Av+Andres+Zevallos+Cajamarca" target="_blank">
+      <div class="store-num">4</div>
+      <div class="store-body">
+        <strong>Av. Andrés Zevallos</strong>
+        <small>Cruce de las dos Vías</small>
+      </div>
+      <span class="store-arrow">›</span>
+    </a>
+    <a class="store-card" href="https://maps.google.com/maps?q=Jr+Silva+Santisteban+216+Cajamarca" target="_blank">
+      <div class="store-num">5</div>
+      <div class="store-body">
+        <strong>Jr. Silva Santisteban 216</strong>
+        <small>Cajamarca</small>
+      </div>
+      <span class="store-arrow">›</span>
+    </a>
+    <a class="store-card" href="https://maps.google.com/maps?q=Jr+Del+Comercio+707+Cajamarca" target="_blank">
+      <div class="store-num">6</div>
+      <div class="store-body">
+        <strong>Jr. Del Comercio 707</strong>
+        <small>Cajamarca</small>
+      </div>
+      <span class="store-arrow">›</span>
+    </a>
+    <a class="store-card" href="https://maps.google.com/maps?q=Jr+Amalia+Puga+762+Cajamarca" target="_blank">
+      <div class="store-num">7</div>
+      <div class="store-body">
+        <strong>Jr. Amalia Puga 762</strong>
+        <small>Cajamarca</small>
+      </div>
+      <span class="store-arrow">›</span>
+    </a>
+  </div>
+
+  <!-- Horario card -->
+  <div class="hours-card">
+    <div class="hours-head">🕒 Horario de Atención</div>
+    <div class="hours-body">
+      <div class="hours-row">
+        <span class="hours-day">Lunes – Jueves</span>
+        <span class="hours-time">9:00 am – 11:00 pm</span>
+      </div>
+      <div class="hours-row highlight">
+        <span class="hours-day">Vie · Sáb · Dom</span>
+        <span class="hours-time">9:00 am – 1:00 am</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="logo-badge" style="margin:0 auto 12px">
+    <span class="kusi">KUSI</span>
+    <span class="mini-tag">MINIMARKET</span>
+  </div>
+  <p>Abarrotes, snacks y más · Delivery en Cajamarca</p>
+  <p>📞 +51 932 327 885</p>
+  <div class="social-row">
+    <a class="social-btn fb-btn" href="https://www.facebook.com/100063565607615" target="_blank">Facebook</a>
+    <a class="social-btn ig-btn" href="https://www.instagram.com/kusiminimarket/" target="_blank">Instagram</a>
+    <a class="social-btn wa-btn" href="https://wa.me/51932327885" target="_blank">WhatsApp</a>
+  </div>
+  <p class="footer-copy">© 2026 Kusi Minimarket · Cajamarca, Perú</p>
+</footer>
+
+<!-- ══ CART FAB ══ -->
+<button class="cart-fab" onclick="openCart()">
+  🛒
+  <div class="cart-count hidden" id="cartCount">0</div>
+</button>
+
+<!-- ══ PRODUCT MODAL ══ -->
+<div class="product-overlay" id="productOverlay" onclick="closeProductModal()"></div>
+<div class="product-modal" id="productModal">
+  <button class="pm-close" onclick="closeProductModal()">✕</button>
+  <div class="pm-img-wrap" id="pmImgWrap"></div>
+  <div class="pm-info">
+    <div class="pm-cat" id="pmCat"></div>
+    <h2 class="pm-name" id="pmName"></h2>
+    <div class="pm-price-row" id="pmPriceRow"></div>
+    <div class="pm-desc" id="pmDesc"></div>
+    <button class="pm-add-btn" id="pmAddBtn">Agregar al carrito</button>
+  </div>
+</div>
+
+<!-- ══ CART DRAWER ══ -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Tu pedido</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItemsEl"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total a pagar:</span>
+      <span class="cart-total-num" id="cartTotalEl">S/ 0.00</span>
+    </div>
+    <button class="wa-order-btn" onclick="sendWhatsApp()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar pedido por WhatsApp
+    </button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
