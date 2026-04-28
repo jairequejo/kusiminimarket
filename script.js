@@ -254,7 +254,7 @@ function renderDrawer() {
       ? `<img src="${esc(item.imagen_url)}" alt="" onerror="this.outerHTML='${item.emoji}'">`
       : item.emoji;
     // escape key for onclick
-    const k = esc(item.nombre).replace(/'/g,"&#39;");
+    const k = esc(item.nombre).replace(/'/g,"\\'");
     return `
     <div class="cart-item">
       <div class="cart-item-img">${imgH}</div>
