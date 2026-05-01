@@ -303,5 +303,24 @@ function closeSidebar() {
   document.body.style.overflow = "";
 }
 
+// ── PDF MODAL ──
+function openPdfModal(url, title) {
+  document.getElementById("pdfIframe").src = url;
+  document.getElementById("pdfTitle").innerText = title || "Documento";
+  document.getElementById("pdfOpenBtn").href = url;
+  document.getElementById("pdfOverlay").classList.add("open");
+  document.getElementById("pdfModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closePdfModal() {
+  document.getElementById("pdfOverlay").classList.remove("open");
+  document.getElementById("pdfModal").classList.remove("open");
+  document.body.style.overflow = "";
+  setTimeout(() => {
+    document.getElementById("pdfIframe").src = "";
+  }, 300);
+}
+
 // ── INICIO ──
 loadSheet();

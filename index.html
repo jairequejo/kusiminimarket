@@ -35,11 +35,11 @@
     <button class="sidebar-close" onclick="closeSidebar()">✕</button>
   </div>
   <div class="sidebar-content">
-    <a href="docs/1ESTUDIO DE LINEA DE BASE LISTO.pdf" class="sidebar-link" target="_blank">📄 ESTUDIO DE LINEA DE BASE LISTO</a>
-    <a href="docs/2. Política del SGSST LISTA.pdf" class="sidebar-link" target="_blank">📄 POLITICA DEL SGSST</a>
-    <a href="docs/MATRIZ IPER LISTO.pdf" class="sidebar-link" target="_blank">📄 MATRIZ IPER</a>
-    <a href="docs/4. Programa Anual de SST LISTO.pdf" class="sidebar-link" target="_blank">📄 PROGRAMA ANUAL DE SST</a>
-    <a href="docs/5. Reglamento Interno de SST LITO.pdf" class="sidebar-link" target="_blank">📄 REGLAMENTO INTERNO DE SST</a>
+    <a href="#" onclick="openPdfModal('docs/1ESTUDIO DE LINEA DE BASE LISTO.pdf', 'Línea de Base'); closeSidebar(); return false;" class="sidebar-link">📄 ESTUDIO DE LINEA DE BASE LISTO</a>
+    <a href="#" onclick="openPdfModal('docs/2. Política del SGSST LISTA.pdf', 'Política del SGSST'); closeSidebar(); return false;" class="sidebar-link">📄 POLITICA DEL SGSST</a>
+    <a href="#" onclick="openPdfModal('docs/MATRIZ IPER LISTO.pdf', 'Matriz IPER'); closeSidebar(); return false;" class="sidebar-link">📄 MATRIZ IPER</a>
+    <a href="#" onclick="openPdfModal('docs/4. Programa Anual de SST LISTO.pdf', 'Programa Anual SST'); closeSidebar(); return false;" class="sidebar-link">📄 PROGRAMA ANUAL DE SST</a>
+    <a href="#" onclick="openPdfModal('docs/5. Reglamento Interno de SST LITO.pdf', 'Reglamento Interno'); closeSidebar(); return false;" class="sidebar-link">📄 REGLAMENTO INTERNO DE SST</a>
   </div>
 </div>
 
@@ -265,6 +265,22 @@
     <div class="pm-price-row" id="pmPriceRow"></div>
     <div class="pm-desc" id="pmDesc"></div>
     <button class="pm-add-btn" id="pmAddBtn">Agregar al carrito</button>
+  </div>
+</div>
+
+<!-- ══ PDF MODAL ══ -->
+<div class="pdf-overlay" id="pdfOverlay" onclick="closePdfModal()"></div>
+<div class="pdf-modal" id="pdfModal">
+  <div class="pdf-header">
+    <h3 id="pdfTitle">Documento</h3>
+    <button class="pdf-close" onclick="closePdfModal()">✕</button>
+  </div>
+  <div class="pdf-fallback-bar">
+    <span>¿El documento no carga?</span>
+    <a id="pdfOpenBtn" href="#" target="_blank" class="pdf-open-btn" onclick="closePdfModal()">Abrir en otra pestaña</a>
+  </div>
+  <div class="pdf-body">
+    <iframe id="pdfIframe" src="" width="100%" height="100%" style="border:none;"></iframe>
   </div>
 </div>
 
