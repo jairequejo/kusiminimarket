@@ -307,6 +307,8 @@ function closeSidebar() {
 let currentPdfRenderTask = null;
 
 async function openPdfModal(url, title) {
+  closeSidebar(); // Cerrar el menú lateral primero
+  
   document.getElementById("pdfTitle").innerText = title || "Documento";
   document.getElementById("pdfOpenBtn").href = url;
   document.getElementById("pdfOverlay").classList.add("open");
