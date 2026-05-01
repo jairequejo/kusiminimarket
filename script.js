@@ -291,5 +291,17 @@ function sendWhatsApp() {
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
 }
 
+// ── SIDEBAR ──
+function openSidebar() {
+  document.getElementById("sidebarOverlay").classList.add("open");
+  document.getElementById("sidebar").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeSidebar() {
+  document.getElementById("sidebarOverlay").classList.remove("open");
+  document.getElementById("sidebar").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
 // ── INICIO ──
 loadSheet();

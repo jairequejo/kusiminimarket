@@ -13,9 +13,12 @@
 
 <!-- ══ HEADER ══ -->
 <header>
-  <div class="logo-badge">
-    <span class="kusi">KUSI</span>
-    <span class="mini-tag">MINIMARKET</span>
+  <div class="header-left">
+    <button class="menu-btn" onclick="openSidebar()" aria-label="Menú principal">☰</button>
+    <div class="logo-badge">
+      <span class="kusi">KUSI</span>
+      <span class="mini-tag">MINIMARKET</span>
+    </div>
   </div>
   <nav>
     <a href="#ofertas">Ofertas</a>
@@ -23,6 +26,22 @@
     <a href="#tiendas">Tiendas</a>
   </nav>
 </header>
+
+<!-- ══ SIDEBAR (MENÚ LATERAL) ══ -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h3>Documentos SST</h3>
+    <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+  </div>
+  <div class="sidebar-content">
+    <a href="docs/1ESTUDIO DE LINEA DE BASE LISTO.pdf" class="sidebar-link" target="_blank">📄 ESTUDIO DE LINEA DE BASE LISTO</a>
+    <a href="docs/2. Política del SGSST LISTA.pdf" class="sidebar-link" target="_blank">📄 POLITICA DEL SGSST</a>
+    <a href="docs/MATRIZ IPER LISTO.pdf" class="sidebar-link" target="_blank">📄 MATRIZ IPER</a>
+    <a href="docs/4. Programa Anual de SST LISTO.pdf" class="sidebar-link" target="_blank">📄 PROGRAMA ANUAL DE SST</a>
+    <a href="docs/5. Reglamento Interno de SST LITO.pdf" class="sidebar-link" target="_blank">📄 REGLAMENTO INTERNO DE SST</a>
+  </div>
+</div>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
