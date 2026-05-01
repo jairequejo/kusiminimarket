@@ -304,21 +304,61 @@ function closeSidebar() {
 }
 
 // ── PDF MODAL ──
-function openPdfModal(url, title) {
-  document.getElementById("pdfIframe").src = url;
+let currentPdfRenderTask = null;
+
+async function openPdfModal(url, title) {
   document.getElementById("pdfTitle").innerText = title || "Documento";
   document.getElementById("pdfOpenBtn").href = url;
   document.getElementById("pdfOverlay").classList.add("open");
   document.getElementById("pdfModal").classList.add("open");
   document.body.style.overflow = "hidden";
+  
+  const container = document.getElementById("pdfRenderContainer");
+  container.innerHTML = '<div class="loading-state" style="margin-top:40px"><div class="spinner"></div>Cargando documento...</div>';
+  
+  try {
+    if (typeof pdfjsLib === 'undefined') throw new Error("PDF.js no está cargado");
+    
+    if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+    
+    const loadingTask = pdfjsLib.getDocument(url);
+    currentPdfRenderTask = loadingTask;
+    const pdfDoc = await loadingTask.promise;
+    
+    container.innerHTML = ""; // Limpiar spinner
+    
+    for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+      const page = await pdfDoc.getPage(pageNum);
+      const viewport = page.getViewport({ scale: 1.5 });
+      
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+      
+      container.appendChild(canvas);
+      
+      await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+    }
+  } catch (error) {
+    console.error("Error cargando PDF:", error);
+    container.innerHTML = '<div class="empty-state" style="margin-top:40px">⚠️ No se pudo visualizar el PDF aquí automáticamente.<br><br>Usa el botón superior "Abrir en otra pestaña".</div>';
+  }
 }
 
 function closePdfModal() {
   document.getElementById("pdfOverlay").classList.remove("open");
   document.getElementById("pdfModal").classList.remove("open");
   document.body.style.overflow = "";
+  
+  if (currentPdfRenderTask && currentPdfRenderTask.destroy) {
+    currentPdfRenderTask.destroy();
+  }
+  
   setTimeout(() => {
-    document.getElementById("pdfIframe").src = "";
+    document.getElementById("pdfRenderContainer").innerHTML = "";
   }, 300);
 }
 
